@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <title>Landing page</title>
+    <link rel="shortcut icon" href="https://a0.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico" type="image/x-icon">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #head {
+            height: 60px;
+            background: #fff;
+        }
+
+        .bi {
+            margin-left: 40px;
+        }
+
+
+        .gallery_images img {
+            width: 100%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            transition: 1s ease;
+        }
+
+        #imagex {
+            width: 720px;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            margin: 10px auto;
+        }
+
+        #imagex img {
+            width: 100%;
+            height: auto;
+        }
+
+        #setup {
+            height: 408px;
+
+        }
+
+        .height_img img {
+            width: 343px;
+            height: 404px;
+            margin-left: 584px;
+            margin-top: -438px;
+            margin-bottom: 3px;
+            overflow: clip;
+        }
+
+
+        #weidth_img img {
+            width: 342px;
+            height: 200px;
+            display: block;
+            margin-bottom: 3px;
+            margin-left: 235px;
+        }
+
+        .gallery_images .image_holder {
+            width: 720px;
+            margin: 0px auto;
+            position: relative;
+        }
+
+        .image_overlay {
+            background: transparent;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transition: all 0.3s;
+        }
+
+        .image_overlay:hover {
+            background-color: #00000057;
+        }
+
+        .image_holder_sided {
+            margin: 0px auto;
+            position: relative;
+            width: 100%;
+        }
+
+        .left_holder {
+            margin: 0px auto;
+            position: relative;
+            width: 100%;
+        }
+
+        .left_holder img {
+            height: 100%;
+        }
+
+        .right_tall .image_holder_sided img {
+            max-height: 500px;
+        }
+
+        .gallery_container {
+            max-width: 1100px;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 0px auto;
+            margin-top: 100px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            height: 100%;
+        }
+
+        .gallery_image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .right_line_gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .right_gallery {
+            position: relative;
+        }
+
+        .show_all {
+            background: white;
+            width: 150px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 7px;
+            border: 1.5px solid #000;
+            color: #000;
+            font-size: 14px;
+            font-family: sans-serif;
+            font-weight: 500;
+            position: absolute;
+            right: 25px;
+            bottom: 25px;
+            display: flex;
+            cursor: pointer;
+        }
+
+        .left_icon {
+            margin-right: 5px;
+            position: relative;
+            top: 1px;
+        }
+
+        .image_holder {
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .darkish_overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .darkish_overlay:hover {
+            background-color: #00000045;
+        }
+
+
+        .grid_display {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 25px;
+            width: 100%;
+        }
+
+        .sided_icon_holder {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 15px;
+            border-radius: 7px;
+            grid-gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .sided_icon_holder:hover {
+            background: #f7f7f7;
+        }
+
+        .back_btn,
+        .sided_icon_holder,
+        .right_sided_icons {
+            display: flex;
+            grid-gap: 5px;
+        }
+
+        .gallery_holder {
+            margin-bottom: 150px;
+        }
+
+
+        .full_popup {
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-top: 80px;
+            display: none;
+            width: 100%;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .show_full_popup {
+            background: white;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            z-index: 999;
+            opacity: 1;
+            display: block;
+        }
+
+
+
+
+
+        /* //popup slider css  */
+        .popup_body {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #000;
+            color: #fff;
+            display: none;
+        }
+
+        .show_popup {
+            display: block;
+            position: absolute;
+            z-index: 2000;
+            top: 0px;
+            left: 0px;
+        }
+
+        .popup_header {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background: transparent;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            padding: 20px;
+        }
+
+        .icon_holder {
+            display: flex;
+            align-items: center;
+            grid-gap: 5px;
+        }
+
+        .center_header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right_header {
+            display: flex;
+            justify-content: end;
+            grid-gap: 10px;
+        }
+
+        .close_icon_holder {
+            display: flex;
+            align-items: center;
+            grid-gap: 5px;
+            height: auto;
+            justify-content: center;
+            transition: all 0.3s;
+            border-radius: 8px;
+            width: fit-content;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            outline: none;
+        }
+
+        .icon_holder {
+            display: flex;
+            align-items: center;
+            grid-gap: 5px;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            transition: all 0.3s;
+            border-radius: 50%;
+        }
+
+        .icon_holder:hover {
+            background: #383838;
+        }
+
+        .close_icon_holder:hover {
+            background: #383838;
+            border: 2px solid #383838;
+        }
+
+
+
+        .popup_body_center {
+            width: 100%;
+            height: calc(100vh - 80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+
+        .popup_slidering_body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            height: 450px;
+        }
+
+        .slider_grid_part {
+            display: flex;
+            grid-gap: 50px;
+            height: inherit;
+            align-items: center;
+            width: 100%;
+            padding: 0px 75px;
+        }
+
+        .sliderleft_arrow {
+            transition: all 0.3s;
+            color: white;
+            width: 50px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            border: 2px solid #eee;
+        }
+
+        .sliderright_arrow {
+            transition: all 0.3s;
+            color: white;
+            width: 50px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            border: 2px solid #eee;
+        }
+
+        .sliderleft_arrow:hover,
+        .sliderright_arrow:hover {
+            background: #383838;
+        }
+
+        .middle_slider {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sliderimage {
+            width: auto;
+            height: 100%;
+        }
+
+
+        .popup_footer {
+            text-align: center;
+            color: #ddd;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+
+        .full_width {
+            width: 100%;
+        }
+
+
+        .left_right_tall {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            width: 720px;
+            margin: 0px auto;
+            margin-bottom: 10px;
+        }
+
+        .left_smalls {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 10px;
+        }
+
+
+
+
+        @media screen and (max-width: 1000px) {
+            .popup_header {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                background: transparent;
+                position: relative;
+                top: 0px;
+                left: 0px;
+                padding: 20px;
+            }
+
+            .popup_slidering_body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                height: 400px;
+            }
+
+            .slider_grid_part {
+                display: flex;
+                grid-gap: 10px;
+                height: inherit;
+                align-items: center;
+                width: 100%;
+                padding: 0px 25px;
+            }
+
+
+
+            .sliderleft_arrow {
+                transition: all 0.3s;
+                color: white;
+                width: 50px;
+                height: 42px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50px;
+            }
+
+            .middle_slider {
+                max-width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .sliderimage {
+                width: 100%;
+                height: 100%;
+            }
+
+
+            #imagex {
+                width: 100%;
+                height: auto;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+                margin: 10px auto;
+            }
+
+            .left_right_tall {
+                width: 100%;
+            }
+
+            .gallery_images .image_holder {
+                width: 100%;
+                height: auto;
+            }
+
+
+            .full_popup {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .popup_slidering_body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                height: 250px;
+            }
+
+            .gallery_container {
+                border-radius: unset;
+                max-height: 400px;
+                height: unset;
+            }
+
+            .gallery {
+                display: block;
+            }
+
+            .right_gallery {
+                display: none;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="gallery_container">
+
+            <div class="gallery">
+                <div class="left_gallery">
+                    <div class="image_holder" data-description="this is a test image" data-id="image_1st"
+                        onclick="showSpecImageInPopUp(this)">
+                        <img src="/image/7.7.webp" alt="Image" class="gallery_image">
+                        <div class="darkish_overlay"></div>
+                    </div>
+                </div>
+                <div class="right_gallery">
+                    <div class="right_line_gallery">
+                        <div class="image_holder" data-description="this is a test image" data-id="image_2nd"
+                            onclick="showSpecImageInPopUp(this)">
+                            <img src="/image/1.1.webp" alt="Image" class="gallery_image">
+                            <div class="darkish_overlay"></div>
+                        </div>
+                        <div class="image_holder" data-description="this is a test image" data-id="image_3rd"
+                            onclick="showSpecImageInPopUp(this)">
+                            <img src="/image/2.2.webp" alt="Image" class="gallery_image">
+                            <div class="darkish_overlay"></div>
+                        </div>
+                        <div class="image_holder" data-description="this is a test image" data-id="image_4th"
+                            onclick="showSpecImageInPopUp(this)">
+                            <img src="/image/3.3.webp" alt="Image" class="gallery_image">
+                            <div class="darkish_overlay"></div>
+                        </div>
+                        <div class="image_holder" data-description="this is a test image" data-id="image_5th"
+                            onclick="showSpecImageInPopUp(this)">
+                            <img src="/image/4.4.webp" alt="Image" class="gallery_image">
+                            <div class="darkish_overlay"></div>
+                        </div>
+                    </div>
+                    <div class="show_all" onclick="showPopup(this)">
+                        <span class="left_icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"
+                                style="display: block; height: 18px; width: 18px; fill: currentcolor;"
+                                aria-hidden="true" role="presentation" focusable="false">
+                                <path fill-rule="evenodd"
+                                    d="M3 11.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-10-5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-10-5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm5 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="right_text">Show all photos</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="full_popup">
+        <nav class="navbar ml-4 fixed-top" id="head">
+
+            <div class="grid_display">
+                <div class="back_btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                        style="display: block; fill: none; height: 18px; width: 18px; stroke: currentcolor; stroke-width: 5.33333px; overflow: visible;"
+                        aria-hidden="true" role="presentation" focusable="false">
+                        <path fill="none" d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"></path>
+                    </svg>
+                </div>
+
+                <div class="right_sided_icons">
+                    <div class="sided_icon_holder">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                            style="display: block; fill: none; height: 18px; width: 18px; stroke: currentcolor; stroke-width: 2px; overflow: visible;"
+                            aria-hidden="true" role="presentation" focusable="false">
+                            <g fill="none">
+                                <path
+                                    d="M27 18v9a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-9M16 3v23V3zM6 13l9.3-9.3a1 1 0 0 1 1.4 0L26 13">
+                                </path>
+                            </g>
+                        </svg> Share
+                    </div>
+
+                    <div class="sided_icon_holder">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                            style="display: block; fill: none; height: 18px; width: 18px; stroke: currentcolor; stroke-width: 2px; overflow: visible;"
+                            aria-hidden="true" role="presentation" focusable="false">
+                            <path
+                                d="M16 28c7-4.73 14-10 14-17a6.98 6.98 0 0 0-7-7c-1.8 0-3.58.68-4.95 2.05L16 8.1l-2.05-2.05a6.98 6.98 0 0 0-9.9 0A6.98 6.98 0 0 0 2 11c0 7 7 12.27 14 17z">
+                            </path>
+                        </svg> Close
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+
+
+
+
+        <!-- Gallery -->
+        <div class="gallery_holder">
+            <div class="gallery_images">
+                <div class="image_holder image_1st" data-description="this is a test image" data-id="1"
+                    onclick="showImagePopup(this)">
+                    <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-10399749/original/5d7144f7-4a31-46ec-9d40-a65d9c902fed.png?im_w=1200"
+                        alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex" class="image_2nd image_3rd">
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="2"
+                        onclick="showImagePopup(this)">
+                        <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-10399749/original/5cbe169f-ef82-4d0f-ac04-d2a2304ab014.png?im_w=720"
+                            alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="3"
+                        onclick="showImagePopup(this)">
+                        <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-10399749/original/3bea450b-6367-44c7-b089-d64fe6cbffce.png?im_w=1200"
+                            alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+
+                <div class="image_holder image_4th" data-description="this is a test image" data-id="4"
+                    onclick="showImagePopup(this)">
+                    <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-10399749/original/8ceb1314-2e4c-4fb3-b7b5-2a0f48193d3a.png?im_w=720"
+                        alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex" class="image_5th">
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="5"
+                        onclick="showImagePopup(this)">
+                        <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-10399749/original/d9758d99-63cb-4517-8b61-6ec77e2eeddc.png?im_w=720"
+                            alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="6"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/6.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+
+
+                <div class="image_holder" data-description="this is a test image" data-id="7"
+                    onclick="showImagePopup(this)">
+                    <img src="/image/7.webp" alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex">
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="8"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/8.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="9"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/9.png" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+
+
+                <div class="image_holder" data-description="this is a test image" data-id="10"
+                    onclick="showImagePopup(this)">
+                    <img src="/image/10.webp" alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex">
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="11"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/11.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="12"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/12.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+
+
+                <div class="image_holder" data-description="this is a test image" data-id="13"
+                    onclick="showImagePopup(this)">
+                    <img src="/image/13 (2).webp" alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex">
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="14"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/14.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="15"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/15.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+
+
+                <div class="image_holder" data-description="this is a test image" data-id="16"
+                    onclick="showImagePopup(this)">
+                    <img src="/image/16.jpg" alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex">
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="17"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/17.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="18"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/18.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+
+
+                <div class="image_holder" data-description="this is a test image" data-id="19"
+                    onclick="showImagePopup(this)">
+                    <img src="/image/19.webp" alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex">
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="20"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/20.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="21"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/21.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+
+
+                <div class="image_holder" data-description="this is a test image" data-id="22"
+                    onclick="showImagePopup(this)">
+                    <img src="/image/22.webp" alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex">
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="23"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/23.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image" data-id="24"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/24.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+
+                <div class="left_right_tall">
+                    <div class="left_smalls">
+                        <div class="left_holder" data-description="this is a test image" data-id="25"
+                            onclick="showImagePopup(this)">
+                            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-10399749/original/b492c24f-90fa-4ec3-9c1a-96a4df7828bb.png?im_w=720"
+                                alt="" class="gallery_main_img">
+                            <div class="image_overlay"></div>
+                        </div>
+                        <div class="left_holder" data-description="this is a test image" data-id="26"
+                            onclick="showImagePopup(this)">
+                            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-10399749/original/00303ca3-fe33-424d-b902-46a111d98751.png?im_w=720"
+                                alt="" class="gallery_main_img">
+                            <div class="image_overlay"></div>
+                        </div>
+                    </div>
+
+                    <div class="right_tall">
+                        <div class="image_holder_sided" data-description="this is a test image" data-id="27"
+                            onclick="showImagePopup(this)">
+                            <img src="https://a0.muscache.com/im/pictures/prohost-api/Hosting-10399749/original/22e6167a-9152-4cc2-ac66-be9d4cc085e2.png?im_w=720"
+                                alt="" class="gallery_main_img">
+                            <div class="image_overlay"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="image_holder" data-description="this is a test image sfdsf2423" data-id="28"
+                    onclick="showImagePopup(this)">
+                    <img src="/image/25.webp" alt="" class="gallery_main_img">
+                    <div class="image_overlay"></div>
+                </div>
+
+                <div id="imagex">
+                    <div class="image_holder_sided" data-description="this is a test image 4324" data-id="29"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/26.png" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                    <div class="image_holder_sided" data-description="this is a test image 5345345" data-id="30"
+                        onclick="showImagePopup(this)">
+                        <img src="/image/27.webp" alt="" class="gallery_main_img">
+                        <div class="image_overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="popup_body">
+
+        <div class="popup_header">
+            <div class="left_header">
+                <div class="close_icon_holder">
+                    <svg viewBox="0 0 12 12" role="presentation" aria-hidden="true" focusable="false"
+                        style="height: 12px; width: 12px; display: block; fill: currentcolor;">
+                        <path
+                            d="m11.5 10.5c.3.3.3.8 0 1.1s-.8.3-1.1 0l-4.4-4.5-4.5 4.5c-.3.3-.8.3-1.1 0s-.3-.8 0-1.1l4.5-4.5-4.4-4.5c-.3-.3-.3-.8 0-1.1s.8-.3 1.1 0l4.4 4.5 4.5-4.5c.3-.3.8-.3 1.1 0s .3.8 0 1.1l-4.5 4.5z"
+                            fill-rule="evenodd"></path>
+                    </svg>
+                    <span class="text">Close</span>
+                </div>
+            </div>
+            <div class="center_header">
+                <span style="text-align: center;" id="center"> <span class="nth_number">1</span> / <span
+                        class="total_number">30</span> </span>
+            </div>
+
+
+            <div class="right_header">
+
+                <div class="icon_holder">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                        style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2px; overflow: visible;"
+                        aria-hidden="true" role="presentation" focusable="false">
+                        <g fill="none">
+                            <path
+                                d="M27 18v9a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-9M16 3v23V3zM6 13l9.3-9.3a1 1 0 0 1 1.4 0L26 13">
+                            </path>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="icon_holder">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                        style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2px; overflow: visible;"
+                        aria-hidden="true" role="presentation" focusable="false">
+                        <path
+                            d="M16 28c7-4.73 14-10 14-17a6.98 6.98 0 0 0-7-7c-1.8 0-3.58.68-4.95 2.05L16 8.1l-2.05-2.05a6.98 6.98 0 0 0-9.9 0A6.98 6.98 0 0 0 2 11c0 7 7 12.27 14 17z">
+                        </path>
+                    </svg>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <div class="popup_body_center">
+            <div class="full_width">
+                <div class="popup_slidering_body">
+                    <div class="slider_grid_part">
+                        <div class="sliderleft_arrow" onclick="prevShow(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333px; overflow: visible;"
+                                aria-hidden="true" role="presentation" focusable="false">
+                                <path fill="none" d="M20 28 8.7 16.7a1 1 0 0 1 0-1.4L20 4"></path>
+                            </svg>
+                        </div>
+                        <div class="middle_slider">
+                            <img src="/image/7.7.webp" alt="Image" class="sliderimage">
+                        </div>
+                        <div class="sliderright_arrow" onclick="nextShow(this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                                style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333px; overflow: visible;"
+                                aria-hidden="true" role="presentation" focusable="false">
+                                <path fill="none" d="m12 4 11.3 11.3a1 1 0 0 1 0 1.4L12 28"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="popup_footer">
+                    Lorem ipsum dolor sit amet consectetur.
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        function showPopup() {
+            $(".gallery_container").addClass("d-none");
+            $(".full_popup").addClass("show_full_popup");
+        }
+
+        function showSpecImageInPopUp(passedThis) {
+            let dataid = $(passedThis).attr('data-id');
+            $(".gallery_container").addClass("d-none");
+            $(".full_popup").addClass("show_full_popup");
+
+
+
+            var targetSpecialDiv = $('.gallery_holder .gallery_images .' + dataid);
+            var targetScrollPos = targetSpecialDiv.offset().top - 68;
+            $('.full_popup ').animate({
+                scrollTop: targetScrollPos - $('.full_popup ').offset().top + $('.full_popup ').scrollTop()
+            }, 10);
+        }
+
+
+
+
+        $(".back_btn").click(function () {
+            $(".gallery_container").removeClass("d-none");
+            $(".full_popup").removeClass("show_full_popup");
+        });
+
+
+
+        function showImagePopup(passedThis) {
+            let srcName = $(passedThis).children('.gallery_main_img').attr('src');
+            let dataid = $(passedThis).attr('data-id');
+            let description = $(passedThis).attr("data-description");
+
+            $(".nth_number").html(dataid);
+            $(".sliderimage").attr("src", srcName);
+            $(".popup_footer").html(description);
+
+            $(".gallery_container").addClass("d-none");
+            $(".full_popup").removeClass("show_full_popup");
+            $(".popup_body").addClass("show_popup");
+        }
+
+
+
+
+        $(".close_icon_holder").click(function () {
+            $(".popup_body").removeClass("show_popup");
+            $(".gallery_container").addClass("d-none");
+            $(".full_popup").addClass("show_full_popup");
+        });
+
+
+
+
+
+        function prevShow() {
+            if (Number($(".nth_number").html()) > 1) {
+                let nthNumber = (Number($(".nth_number").html()) - 1);
+                $(".nth_number").html(nthNumber);
+                let srcName = $('[data-id="' + nthNumber + '"]').children('.gallery_main_img').attr("src");
+                let description = $('[data-id="' + nthNumber + '"]').attr("data-description");
+                $(".sliderimage").attr("src", srcName);
+                $(".popup_footer").html(description);
+            }
+        }
+
+
+
+        function nextShow() {
+            var totalNumber = (Number($(".total_number").html()));
+            if ((Number($(".nth_number").html())) < totalNumber) {
+                let nthNumber = (Number($(".nth_number").html()) + 1);
+                $(".nth_number").html(nthNumber);
+                let srcName = $('[data-id="' + nthNumber + '"]').children('.gallery_main_img').attr("src");
+                let description = $('[data-id="' + nthNumber + '"]').attr("data-description");
+                $(".sliderimage").attr("src", srcName);
+                $(".popup_footer").html(description);
+            }
+        }
+    </script>
+</body>
+
+</html>
